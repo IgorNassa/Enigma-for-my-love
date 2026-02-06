@@ -1,0 +1,865 @@
+/* style.css otimizado com fundo creme e flores coloridas - VERSÃO MAIS VISÍVEL */
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Montserrat:wght@400;500;600&display=swap');
+
+:root {
+    --bg-color: #FDF8F0; /* Creme mais quente e acolhedor */
+    --header-color: #8C6B7E; /* Mais escuro e neutro - ANTES ERA #B5838D */
+    --text-color: #6D4C5C;
+    --accent-color: #E8C3C3;
+    --card-bg: rgba(255, 255, 255, 0.95);
+    --shadow-color: rgba(181, 131, 141, 0.15);
+    --transition: all 0.3s ease;
+    
+    /* Cores pastéis para as flores - VERSÃO MAIS FORTE */
+    --pastel-pink: #FFB6C1;
+    --pastel-lavender: #D8B4E2;
+    --pastel-mint: #A2E8C2;
+    --pastel-peach: #FFCBA4;
+    --pastel-blue: #9AD9D9;
+    --pastel-lilac: #D4A5E3;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--bg-color);
+    font-family: 'Montserrat', sans-serif;
+    color: var(--text-color);
+    margin: 0;
+    padding: 20px 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    overflow-x: hidden;
+    position: relative;
+}
+
+/* Fundo com textura de papel creme sutil */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        radial-gradient(circle at 20% 80%, rgba(255, 209, 220, 0.15) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(230, 230, 250, 0.15) 0%, transparent 50%),
+        radial-gradient(circle at 40% 40%, rgba(200, 247, 220, 0.1) 0%, transparent 50%),
+        url('data:image/svg+xml;utf8,<svg width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><path d="M0,0 L100,0 L100,100 L0,100 Z" fill="white" fill-opacity="0.05"/><path d="M20,50 Q50,20 80,50 T140,50" stroke="white" stroke-width="0.5" fill="none" opacity="0.1"/></svg>');
+    background-size: cover, cover, cover, 100px;
+    opacity: 0.8;
+    z-index: -2;
+    pointer-events: none;
+}
+
+/* Contêiner para flores em pinceladas */
+.watercolor-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: -1;
+    overflow: hidden;
+    opacity: 0.85; /* AUMENTADO para mais visibilidade */
+}
+
+/* Flores em estilo de pinceladas - Criadas com CSS/ SVG */
+.watercolor-flower {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(12px) brightness(1.1); /* Aumentado blur e brilho */
+    opacity: 0.65; /* AUMENTADO de 0.4 para 0.65 */
+    mix-blend-mode: multiply;
+}
+
+/* Flor 1 - Rosa pastel - MAIS FORTE */
+.watercolor-flower-1 {
+    width: 380px;
+    height: 380px;
+    background: 
+        radial-gradient(circle at 30% 30%, var(--pastel-pink) 0%, transparent 60%),
+        radial-gradient(circle at 70% 70%, rgba(255, 182, 193, 0.8) 0%, transparent 50%),
+        radial-gradient(circle at 50% 50%, rgba(255, 200, 210, 0.6) 0%, transparent 40%);
+    top: -120px;
+    left: -120px;
+    transform: rotate(20deg);
+}
+
+/* Flor 2 - Lavanda pastel - MAIS FORTE */
+.watercolor-flower-2 {
+    width: 320px;
+    height: 320px;
+    background: 
+        radial-gradient(circle at 40% 40%, var(--pastel-lavender) 0%, transparent 60%),
+        radial-gradient(circle at 60% 60%, rgba(200, 180, 255, 0.8) 0%, transparent 50%),
+        radial-gradient(circle at 50% 50%, rgba(220, 200, 255, 0.6) 0%, transparent 40%);
+    bottom: -100px;
+    right: -100px;
+    transform: rotate(-15deg);
+}
+
+/* Flor 3 - Azul pastel - MAIS FORTE */
+.watercolor-flower-3 {
+    width: 280px;
+    height: 280px;
+    background: 
+        radial-gradient(circle at 50% 30%, var(--pastel-blue) 0%, transparent 60%),
+        radial-gradient(circle at 30% 70%, rgba(150, 230, 255, 0.8) 0%, transparent 50%),
+        radial-gradient(circle at 60% 60%, rgba(180, 240, 255, 0.6) 0%, transparent 40%);
+    top: 40%;
+    left: -100px;
+    transform: rotate(45deg);
+}
+
+/* Flor 4 - Verde menta pastel - MAIS FORTE */
+.watercolor-flower-4 {
+    width: 340px;
+    height: 340px;
+    background: 
+        radial-gradient(circle at 60% 40%, var(--pastel-mint) 0%, transparent 60%),
+        radial-gradient(circle at 40% 60%, rgba(150, 255, 200, 0.8) 0%, transparent 50%),
+        radial-gradient(circle at 50% 50%, rgba(180, 255, 220, 0.6) 0%, transparent 40%);
+    top: 15%;
+    right: -120px;
+    transform: rotate(-30deg);
+}
+
+/* Flor 5 - Pêssego pastel - MAIS FORTE */
+.watercolor-flower-5 {
+    width: 260px;
+    height: 260px;
+    background: 
+        radial-gradient(circle at 35% 35%, var(--pastel-peach) 0%, transparent 60%),
+        radial-gradient(circle at 65% 65%, rgba(255, 200, 150, 0.8) 0%, transparent 50%),
+        radial-gradient(circle at 50% 50%, rgba(255, 220, 180, 0.6) 0%, transparent 40%);
+    bottom: 25%;
+    left: 10%;
+    transform: rotate(60deg);
+}
+
+/* Flor 6 - Lilás pastel - MAIS FORTE */
+.watercolor-flower-6 {
+    width: 360px;
+    height: 360px;
+    background: 
+        radial-gradient(circle at 45% 45%, var(--pastel-lilac) 0%, transparent 60%),
+        radial-gradient(circle at 55% 55%, rgba(230, 180, 255, 0.8) 0%, transparent 50%),
+        radial-gradient(circle at 50% 50%, rgba(240, 200, 255, 0.6) 0%, transparent 40%);
+    top: 65%;
+    right: 15%;
+    transform: rotate(-10deg);
+}
+
+/* Pétalas adicionais para efeito mais floral - MAIS FORTES */
+.watercolor-petal {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(8px) brightness(1.1);
+    opacity: 0.5; /* AUMENTADO de 0.3 para 0.5 */
+    mix-blend-mode: multiply;
+}
+
+.petal-1 {
+    width: 140px;
+    height: 100px;
+    background: 
+        radial-gradient(ellipse at center, var(--pastel-pink) 0%, transparent 70%),
+        linear-gradient(45deg, transparent 30%, rgba(255, 182, 193, 0.7) 100%);
+    top: 20%;
+    left: 20%;
+    transform: rotate(45deg);
+}
+
+.petal-2 {
+    width: 120px;
+    height: 90px;
+    background: 
+        radial-gradient(ellipse at center, var(--pastel-lavender) 0%, transparent 70%),
+        linear-gradient(-20deg, transparent 30%, rgba(200, 180, 255, 0.7) 100%);
+    top: 70%;
+    left: 80%;
+    transform: rotate(-20deg);
+}
+
+.petal-3 {
+    width: 110px;
+    height: 80px;
+    background: 
+        radial-gradient(ellipse at center, var(--pastel-mint) 0%, transparent 70%),
+        linear-gradient(70deg, transparent 30%, rgba(150, 255, 200, 0.7) 100%);
+    top: 40%;
+    left: 85%;
+    transform: rotate(70deg);
+}
+
+.petal-4 {
+    width: 130px;
+    height: 90px;
+    background: 
+        radial-gradient(ellipse at center, var(--pastel-peach) 0%, transparent 70%),
+        linear-gradient(-40deg, transparent 30%, rgba(255, 200, 150, 0.7) 100%);
+    top: 80%;
+    left: 15%;
+    transform: rotate(-40deg);
+}
+
+/* Manchas de tinta adicionais para mais cobertura */
+.watercolor-blot {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(15px);
+    opacity: 0.4;
+    mix-blend-mode: multiply;
+}
+
+.blot-1 {
+    width: 180px;
+    height: 180px;
+    background: radial-gradient(circle at center, var(--pastel-pink) 0%, transparent 70%);
+    top: 30%;
+    left: 5%;
+    transform: rotate(10deg);
+}
+
+.blot-2 {
+    width: 220px;
+    height: 220px;
+    background: radial-gradient(circle at center, var(--pastel-blue) 0%, transparent 70%);
+    bottom: 15%;
+    right: 5%;
+    transform: rotate(-25deg);
+}
+
+.blot-3 {
+    width: 160px;
+    height: 160px;
+    background: radial-gradient(circle at center, var(--pastel-lavender) 0%, transparent 70%);
+    top: 10%;
+    right: 25%;
+    transform: rotate(15deg);
+}
+
+/* Cabeçalho com animação */
+header {
+    margin-bottom: 20px;
+    text-align: center;
+    width: 100%;
+    position: relative;
+    padding: 10px 0;
+}
+
+.heart-icon {
+    color: var(--header-color);
+    font-size: 1.5rem;
+    position: absolute;
+    top: 50%;
+    right: 10%;
+    transform: translateY(-50%);
+    animation: heartbeat 1.5s infinite;
+    z-index: 2;
+}
+
+@keyframes heartbeat {
+    0%, 100% { transform: translateY(-50%) scale(1); }
+    50% { transform: translateY(-50%) scale(1.1); }
+}
+
+h1 {
+    font-family: 'Dancing Script', cursive;
+    font-size: clamp(2.5rem, 8vw, 3.2rem);
+    color: var(--header-color); 
+    margin: 0;
+    text-shadow: 2px 2px 0px rgba(255,255,255,0.8);
+    line-height: 1.2;
+    position: relative;
+    display: inline-block;
+    padding: 0 10px;
+}
+
+h1::after {
+    content: "";
+    position: absolute;
+    bottom: -5px;
+    left: 15%;
+    width: 70%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--header-color), transparent);
+}
+
+/* O Cartão Principal */
+.container {
+    background: var(--card-bg);
+    padding: clamp(20px, 5vw, 30px) clamp(15px, 4vw, 25px);
+    border-radius: 25px;
+    box-shadow: 
+        0 10px 40px var(--shadow-color),
+        0 0 0 1px rgba(255, 255, 255, 0.8) inset;
+    width: 100%;
+    max-width: 500px;
+    text-align: center;
+    border: 1px solid rgba(255, 255, 255, 0.9);
+    position: relative;
+    overflow: hidden;
+    transition: var(--transition);
+    margin-bottom: 20px;
+    backdrop-filter: blur(10px);
+}
+
+.container:hover {
+    transform: translateY(-5px);
+    box-shadow: 
+        0 15px 50px rgba(181, 131, 141, 0.25),
+        0 0 0 1px rgba(255, 255, 255, 0.9) inset;
+}
+
+.container::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background: linear-gradient(90deg, var(--pastel-pink), var(--pastel-lavender), var(--pastel-mint), var(--pastel-peach));
+}
+
+/* Estilo especial para a fase final */
+.final-container {
+    border: 2px solid var(--pastel-pink);
+}
+
+/* Barra de Progresso melhorada */
+.progress-container {
+    width: 100%;
+    background-color: rgba(242, 230, 230, 0.7);
+    border-radius: 15px;
+    margin-bottom: 25px;
+    height: 12px;
+    overflow: hidden;
+    position: relative;
+}
+
+.progress-bar {
+    height: 100%;
+    background: linear-gradient(90deg, var(--pastel-pink), var(--pastel-lavender), var(--header-color));
+    border-radius: 15px;
+    transition: width 1s ease-in-out;
+    position: relative;
+    overflow: hidden;
+}
+
+.progress-bar::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-image: linear-gradient(
+        -45deg, 
+        rgba(255,255,255,0.3) 25%, 
+        transparent 25%, 
+        transparent 50%, 
+        rgba(255,255,255,0.3) 50%, 
+        rgba(255,255,255,0.3) 75%, 
+        transparent 75%, 
+        transparent
+    );
+    background-size: 20px 20px;
+    animation: progress-shimmer 2s linear infinite;
+}
+
+@keyframes progress-shimmer {
+    0% { background-position: 0 0; }
+    100% { background-position: 20px 0; }
+}
+
+.progress-text {
+    font-size: 0.8rem;
+    color: var(--header-color);
+    margin-top: 5px;
+    font-weight: 600;
+    display: flex;
+    justify-content: space-between;
+}
+
+/* Polaroid melhorada */
+.polaroid {
+    background: white;
+    margin-top: 40px;
+    padding: 15px 15px 50px 15px;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+    transform: rotate(-1deg);
+    margin-bottom: 30px;
+    border: 1px solid #f0f0f0;
+    transition: var(--transition);
+    position: relative;
+    max-width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    background: linear-gradient(135deg, white 0%, #f9f9f9 100%);
+}
+
+.polaroid:hover {
+    transform: rotate(0deg) scale(1.02);
+    box-shadow: 
+        0 10px 25px rgba(0,0,0,0.15),
+        0 0 20px rgba(255, 209, 220, 0.3);
+}
+
+.polaroid::after {
+    content: "❤";
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    color: var(--pastel-pink);
+    font-size: 1.2rem;
+}
+
+.polaroid img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 2px;
+    transition: var(--transition);
+}
+
+.polaroid:hover img {
+    filter: brightness(1.05) saturate(1.1);
+}
+
+/* Texto da Charada */
+.riddle {
+    font-size: 1rem;
+    line-height: 1.7;
+    text-align: left;
+    margin-bottom: 25px;
+    background: linear-gradient(135deg, rgba(255, 245, 247, 0.9), rgba(255, 252, 253, 0.9));
+    padding: 20px;
+    border-radius: 15px;
+    border-left: 5px solid var(--pastel-pink);
+    color: #6D6363;
+    position: relative;
+    transition: var(--transition);
+    backdrop-filter: blur(5px);
+}
+
+.riddle:hover {
+    box-shadow: 0 5px 15px rgba(232, 195, 195, 0.2);
+    transform: translateY(-2px);
+}
+
+.riddle::before {
+    content: "\f075";
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
+    position: absolute;
+    top: -10px;
+    right: 15px;
+    color: var(--pastel-lavender);
+    font-size: 1.5rem;
+    opacity: 0.7;
+}
+
+.riddle strong {
+    color: var(--header-color);
+    font-weight: 600;
+}
+
+.riddle p {
+    margin-bottom: 12px;
+}
+
+/* Nota final romântica */
+.love-note {
+    font-family: 'Dancing Script', cursive;
+    font-size: clamp(1.5rem, 5vw, 1.8rem);
+    color: var(--header-color);
+    margin-top: 15px;
+    margin-bottom: 0;
+    position: relative;
+    padding: 10px 20px;
+    background: linear-gradient(135deg, rgba(232, 195, 195, 0.2), rgba(255, 209, 220, 0.2));
+    border-radius: 50px;
+    display: inline-block;
+    backdrop-filter: blur(5px);
+}
+
+.love-note::before, .love-note::after {
+    content: "❤";
+    margin: 0 10px;
+    font-size: 1.2rem;
+    color: var(--pastel-pink);
+}
+
+/* Botões de navegação */
+.navigation-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 25px;
+    width: 100%;
+    gap: 15px;
+}
+
+.nav-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 25px;
+    background: linear-gradient(135deg, var(--pastel-pink), var(--header-color));
+    color: white;
+    border: none;
+    border-radius: 50px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: var(--transition);
+    box-shadow: 0 5px 15px rgba(181, 131, 141, 0.3);
+    text-decoration: none;
+    flex: 1;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.nav-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(181, 131, 141, 0.4);
+    color: white;
+}
+
+.nav-btn:active {
+    transform: translateY(-1px);
+}
+
+.nav-btn::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transition: left 0.7s ease;
+}
+
+.nav-btn:hover::after {
+    left: 100%;
+}
+
+.prev-btn {
+    background: linear-gradient(135deg, var(--pastel-lavender), var(--accent-color));
+}
+
+.next-btn {
+    background: linear-gradient(135deg, var(--header-color), #C97381);
+}
+
+.disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
+/* Botão único (para a primeira página) */
+.next-btn:not(.nav-btn) {
+    display: inline-block;
+    margin-top: 25px;
+    padding: 12px 30px;
+    background: linear-gradient(135deg, var(--pastel-pink), var(--header-color));
+    color: white;
+    border: none;
+    border-radius: 50px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: var(--transition);
+    box-shadow: 0 5px 15px rgba(181, 131, 141, 0.3);
+    text-decoration: none;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Mensagem de surpresa final */
+.surprise-message {
+    background: linear-gradient(135deg, rgba(255, 245, 247, 0.9), rgba(255, 235, 239, 0.9));
+    padding: 25px;
+    border-radius: 15px;
+    margin: 20px 0;
+    border: 2px dashed var(--pastel-pink);
+    text-align: center;
+    animation: pulse 2s infinite;
+    backdrop-filter: blur(5px);
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.02); }
+}
+
+.surprise-message h2 {
+    color: var(--header-color);
+    font-family: 'Dancing Script', cursive;
+    font-size: 2rem;
+    margin-bottom: 15px;
+    background: linear-gradient(90deg, var(--pastel-pink), var(--pastel-lavender));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.surprise-icon {
+    font-size: 3rem;
+    color: var(--pastel-pink);
+    margin-bottom: 15px;
+    animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+.final-instructions {
+    font-weight: 600;
+    color: var(--header-color);
+    font-size: 1.1rem;
+    margin-top: 10px;
+    padding: 10px;
+    background: rgba(255, 255, 255, 0.7);
+    border-radius: 10px;
+}
+
+/* Rodapé */
+footer {
+    margin-top: 20px;
+    font-size: 0.8rem;
+    color: #A89292;
+    text-align: center;
+    padding: 10px;
+    width: 100%;
+    max-width: 500px;
+    background: rgba(255, 255, 255, 0.7);
+    border-radius: 10px;
+    backdrop-filter: blur(5px);
+}
+
+/* Animações para entrada da página */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.container, header {
+    animation: fadeInUp 0.8s ease-out;
+}
+
+/* Animação sutil para as flores de fundo */
+@keyframes float {
+    0%, 100% { transform: translateY(0) rotate(20deg); }
+    50% { transform: translateY(-10px) rotate(25deg); }
+}
+
+@keyframes float2 {
+    0%, 100% { transform: translateY(0) rotate(-15deg); }
+    50% { transform: translateY(10px) rotate(-10deg); }
+}
+
+@keyframes float3 {
+    0%, 100% { transform: translateY(0) rotate(45deg); }
+    50% { transform: translateY(-5px) rotate(50deg); }
+}
+
+.watercolor-flower-1 {
+    animation: float 20s ease-in-out infinite;
+}
+
+.watercolor-flower-2 {
+    animation: float2 25s ease-in-out infinite;
+}
+
+.watercolor-flower-3 {
+    animation: float3 30s ease-in-out infinite;
+}
+
+.watercolor-flower-4 {
+    animation: float 22s ease-in-out infinite reverse;
+}
+
+.watercolor-flower-5 {
+    animation: float2 28s ease-in-out infinite;
+}
+
+.watercolor-flower-6 {
+    animation: float3 32s ease-in-out infinite reverse;
+}
+
+/* Animações para pétalas */
+@keyframes petalFloat {
+    0%, 100% { transform: translateY(0) rotate(45deg); }
+    50% { transform: translateY(-5px) rotate(50deg); }
+}
+
+.petal-1 {
+    animation: petalFloat 15s ease-in-out infinite;
+}
+
+.petal-2 {
+    animation: petalFloat 18s ease-in-out infinite reverse;
+}
+
+.petal-3 {
+    animation: petalFloat 20s ease-in-out infinite;
+}
+
+.petal-4 {
+    animation: petalFloat 17s ease-in-out infinite reverse;
+}
+
+/* Animações para manchas */
+@keyframes blotFloat {
+    0%, 100% { transform: translateY(0) rotate(10deg); }
+    50% { transform: translateY(-3px) rotate(15deg); }
+}
+
+.blot-1 {
+    animation: blotFloat 25s ease-in-out infinite;
+}
+
+.blot-2 {
+    animation: blotFloat 30s ease-in-out infinite reverse;
+}
+
+.blot-3 {
+    animation: blotFloat 22s ease-in-out infinite;
+}
+
+/* Media Queries otimizadas */
+@media (max-width: 768px) {
+    .watercolor-flower {
+        opacity: 0.7; /* Mais forte em mobile */
+    }
+    
+    .watercolor-flower-1,
+    .watercolor-flower-2,
+    .watercolor-flower-3,
+    .watercolor-flower-4,
+    .watercolor-flower-5,
+    .watercolor-flower-6 {
+        width: 250px;
+        height: 250px;
+    }
+    
+    .watercolor-flower-1 {
+        top: -80px;
+        left: -80px;
+    }
+    
+    .watercolor-flower-2 {
+        bottom: -70px;
+        right: -70px;
+    }
+    
+    .watercolor-flower-3 {
+        left: -70px;
+    }
+    
+    .watercolor-flower-4 {
+        right: -70px;
+    }
+    
+    .container {
+        padding: 18px 12px;
+        border-radius: 20px;
+    }
+    
+    .riddle {
+        font-size: 0.95rem;
+        padding: 16px;
+        line-height: 1.6;
+    }
+    
+    .polaroid {
+        padding: 12px 12px 35px 12px;
+    }
+    
+    .navigation-buttons {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .nav-btn {
+        width: 100%;
+    }
+    
+    .surprise-message h2 {
+        font-size: 1.6rem;
+    }
+    
+    .blot-1,
+    .blot-2,
+    .blot-3 {
+        display: none; /* Esconder manchas em mobile */
+    }
+}
+
+@media (max-width: 480px) {
+    .watercolor-background {
+        opacity: 0.9; /* Ainda mais forte em telas pequenas */
+    }
+    
+    .watercolor-flower-1,
+    .watercolor-flower-2,
+    .watercolor-flower-3,
+    .watercolor-flower-4,
+    .watercolor-flower-5,
+    .watercolor-flower-6 {
+        width: 180px;
+        height: 180px;
+    }
+    
+    h1 {
+        font-size: 2.2rem;
+    }
+    
+    .love-note {
+        font-size: 1.4rem;
+    }
+}
+
+@media (min-width: 1200px) {
+    .container {
+        max-width: 550px;
+    }
+}
+
+/* Ajuste para impressão */
+@media print {
+    .container {
+        box-shadow: none;
+        border: 1px solid #ddd;
+    }
+    
+    .nav-btn, .heart-icon, .watercolor-background {
+        display: none;
+    }
+    
+    body::before {
+        opacity: 0.1;
+    }
+}
